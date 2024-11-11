@@ -18,13 +18,21 @@ function groupGlossaryByLetter(data) {
 const glossaryAZ = groupGlossaryByLetter(glossary);
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout title="Glossário Full-stack.">
 	<div class="max-w-lg mx-auto space-y-8 mt-6">
 		<header>
 			<h1 class="text-3xl font-bold text-gray-100">Glossário Full-stack</h1>
 			<p class="text-gray-300/90">
 				Descubra os termos mais comuns do front e back-end
 			</p>
+
+			<nav class="space-x-2">
+				{
+					Object.keys(glossaryAZ).map((item) => {
+						return <a href={`#${item}`}>{item}</a>;
+					})
+				}
+			</nav>
 		</header>
 		<main class="pb-12">
 			<ul class="space-y-6">
